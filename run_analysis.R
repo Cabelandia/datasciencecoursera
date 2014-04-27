@@ -34,4 +34,6 @@ result_data_sd<-sapply(result_data,sd,na.rm=TRUE)
 # Step 5: Creates a second, independent tidy data set with the average of each variable for each activity and each subject
 dataTable <- data.table(result_data)
 tidyData<-dataTable[,lapply(.SD,mean),by="ACTIVITY,SUBJECT"]
+
+# Step 6: Export the new data into a new csv file
 write.csv(tidyData, "tidyData.csv")
